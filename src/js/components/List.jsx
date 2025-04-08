@@ -1,54 +1,56 @@
-import React, { useState } from "react";
+import React, { useId, useState } from "react";
 
 export const List = () => {
 
-    const [item, setItem] = useState([]);
-    // const randomId = () => Math.floor(Math.random()*9999999)
+    const id = Math.floor(Math.random(useId())*999999);
+    const [list, setList] = useState([]);
+    const [hidden, setHidden] = useState(false);
 
     const handleChange = (e) => {
 
         if (e.key === 'Enter' && e.target.value != "") {
-            console.log(e.target.value);
-            setItem([...item, e.target.value]);
-
-        }
+            setList([{id: id, item: e.target.value}, ...list]);
+        };
     }
-
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Submit")
     }
 
-    const handleDelete = (index) => {
-        let updatedList = item.filter((object,i) => i !== index);
-        setItem(updatedList);
+    const handleDelete = (id) => {
+        let updatedList = list.filter((el) => el.id !== id);
+        setList(updatedList);
     };
 
-    console.log(item);
-
-    // useEffect(() => {
-    //     if (item.length == 0){
-    //         setItem(id: randomId())
-    //     }
-    // }, [item]);
+    console.log(list);
 
     return (
         <div className="card pag1">
+
             <form onSubmit={handleSubmit} className="m-2">
-                    <input type="text" onKeyDown={handleChange} className="form-control border-0"/>
+                    <input type="text" value={list.item} placeholder="What needs to be done?" onKeyDown={handleChange} className="form-control border-0"/>
             </form>
+
             <ul className="list-group list-group-flush text-dark">
-                {item.map((item, index) => 
-                <div className="d-flex justify-content-between text-center m-2">
-                    <li key={index} className="list-group-item border-0">{item}</li>
-                    <button type="button" className="btn link-danger fs-5 fw-lighter" aria-label="Close" onClick={e => handleDelete(item.index)}>X</button>
+                {list.map((el, id) => 
+
+                <div className="d-flex justify-content-between text-center m-2"
+                onMouseOver={() => setHidden(false)} 
+                onMouseOut={() => setHidden(true)}>
+                    <div >
+                        <li key={el.id} className="list-group-item border-0">{el.item}</li>
+                    </div>
+
+                    {hidden ? null : <button type="button" className="btn link-danger fs-5 fw-lighter" onClick={() => handleDelete(el.id)}>X</button>}
+
                 </div>)}
                     {/* Need to find how to howver on button effect and how to delete items without affecting others */}
 
             </ul>
+
             <div className="p-3 text-secondary fst-italic">
-                {item.length} <span className="vw-100">item left</span>
+                {list.length <= 0 ? "No hay tareas, añadir tareas" : list.length + " item left"}<span className="vw-100"></span>
             </div>
+
         </div>
     );
 } 
