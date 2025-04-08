@@ -9,3 +9,34 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+
+/* My CSS classes from here */
+
+.pag1{
+    width: 50%;
+    min-height: 17.5%;
+    position: relative;
+    background-color: white;
+    position: fixed;
+    z-index: 3;
+    box-shadow: 2px 5px 10px rgba(216, 216, 216, 0.621);
+}
+
+.pag2 {
+    width: 48%;
+    height: 18.5%;
+    position: absolute;
+    background-color: whitesmoke;
+    z-index: 2;
+    box-shadow: 2px 5px 10px rgba(216, 216, 216, 0.621);
+}
+
+.pag3{
+    width: 46%;
+    height: 19.5%;
+    position: absolute;
+    background-color: whitesmoke;
+    z-index: 1;
+    box-shadow: 2px 5px 10px rgba(216, 216, 216, 0.621);
+}
+
