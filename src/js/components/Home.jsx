@@ -9,10 +9,17 @@ const Home = () => {
 	return (
 		<div className="container-fluid">
 			<div className="row">
-				<div className="col-12 w-50 mx-auto m-5 d-flex">
-					<List />
-					<div className="card pag2 mx-auto ms-2"></div>
-					<div className="card pag3 mx-auto ms-3"></div>
+				<div className="col-12 col-lg-12 mx-auto justify-content-center">
+					<div className="title">todos</div>
+					<div className="container w-100 border-0">
+						<div className="row">
+							<div className="col-12 col-lg-6 mx-auto">
+								<List />
+								<div className=" footer2 mx-1"></div>
+                    			<div className="footer3 mx-2"></div>
+							</div>
+						</div>
+        			</div>
 				</div>
 			</div>
 		</div>

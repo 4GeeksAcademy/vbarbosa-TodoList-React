@@ -12,41 +12,41 @@
 
 /* My CSS classes from here */
 
-.pag1{
-    width: 50%;
-    min-height: 17.5%;
-    position: relative;
-    background-color: white;
-    position: fixed;
-    z-index: 3;
-    box-shadow: 2px 5px 10px rgba(216, 216, 216, 0.621);
+body {
+    font-family: Cambria;
 }
 
-.pag2 {
-    width: 48%;
-    height: 18.5%;
-    position: absolute;
+.title {
+    font-size: 100px;
+    color: pink;
+    justify-self: center;
+}
+
+.shadow {
+    box-shadow: 2px 0 0 8px rgba(0, 0, 0, 0.276), 2px 0 0 8px rgba(0, 0, 0, 0.244);
+    border-bottom: 0;
+}
+
+.footer1 {
+    min-height: 8%;
+    background-color: white;
+    z-index: 3;
+    box-shadow: 2px 5px 10px rgba(216, 216, 216, 0.621);
+    border: 1px solid rgb(189, 189, 189);
+    border-top: 0px;
+}
+.footer2 {
+    min-height: 7px;
     background-color: whitesmoke;
     z-index: 2;
     box-shadow: 2px 5px 10px rgba(216, 216, 216, 0.621);
+    border: rgb(189, 189, 189) solid 1px;
 }
 
-.pag3{
-    width: 46%;
-    height: 19.5%;
-    position: absolute;
+.footer3{
+    min-height:8px;
     background-color: whitesmoke;
     z-index: 1;
     box-shadow: 2px 5px 10px rgba(216, 216, 216, 0.621);
-}
-
-.listBtn{
-    display: none;
-    color: red;
-    font-size: 2vw;
-    font-weight: 300;
-}
-
-.listBtn:hover {
-    display: block;
+    border: rgb(189, 189, 189) solid 1px;
 }
