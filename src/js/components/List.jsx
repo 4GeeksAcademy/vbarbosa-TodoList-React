@@ -34,13 +34,13 @@ export const List = () => {
                     </form>
                 </li>
 
-                {list.map((el, id) => <div className="justify-content-center" onMouseEnter={()=> setHidden(false)} onMouseLeave={()=> setHidden(true)}>
-                    <li key={id} className="list-group-item justify-content-between d-flex w-100">
+                {list.map((el, id) => <div className="justify-content-center">
+                    <li key={id} className="list-group-item justify-content-between d-flex w-100" onMouseEnter={()=> setHidden(false)} onMouseLeave={()=> setHidden(true)}>
                         {el.item}
                         {hidden ?  null : <button type="button" className="btn text-danger" onClick={() => handleDelete(el.id)}>X</button> }
                     </li>
                 </div>)}
-
+                
             </ul>
             <div className=" card-footer p-3 footer1 text-secondary fst-italic">
                 {list.length <= 0 ? "No hay tareas, añadir tareas" : list.length + " item left"}
