@@ -34,10 +34,16 @@ export const List = () => {
                     </form>
                 </li>
 
-                {list.map((el, id) => <div className="justify-content-center">
-                    <li key={id} className="list-group-item justify-content-between d-flex w-100" onMouseEnter={()=> setHidden(false)} onMouseLeave={()=> setHidden(true)}>
+                {list.map((el) => <div className="justify-content-center">
+                    <li 
+                        key={el.id} 
+                        className="list-group-item justify-content-between d-flex w-100" 
+                        onMouseEnter={() => setHidden(prev => ({ ...prev, [el.id]: false }))}
+                        onMouseLeave={() => setHidden(prev => ({ ...prev, [el.id]: true }))}
+                    >
                         {el.item}
-                        {hidden ?  null : <button type="button" className="btn text-danger" onClick={() => handleDelete(el.id)}>X</button> }
+                        {hidden[el.id] ?  null : <button type="button" className="btn btn-group text-danger" onClick={() => handleDelete(el.id)}>X</button>}
+                    
                     </li>
                 </div>)}
                 
